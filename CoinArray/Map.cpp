@@ -2,7 +2,7 @@
 #include <iostream>
 Mapa::Mapa(int lvldif)
 {
-	 numfilas = 5 * lvldif + rand() % (5 * lvldif * 2 - 5 * lvldif);;
+	 numfilas = 5 * lvldif + rand() % (5 * lvldif * 2 - 5 * lvldif);
 	 numcolums = 5 * lvldif + rand()% (5 * lvldif *2- 5 * lvldif);
 	map = new char*[numfilas];
 	for (int i = 0; i <numfilas; i++)

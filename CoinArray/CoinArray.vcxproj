@@ -21,10 +21,12 @@
   <ItemGroup>
     <ClInclude Include="coinmanager.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="coinmanager.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FE6819D0-2CF4-40A7-8121-D897CA725A4C}</ProjectGuid>

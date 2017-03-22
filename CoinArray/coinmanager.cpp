@@ -2,5 +2,4 @@
 
 coinmanager::coinmanager(Mapa a):mimapa(a)
 {
-
 }
