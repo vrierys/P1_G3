@@ -24,6 +24,7 @@ Mapa::~Mapa()
 	delete[]map;
 }
 
+
 void Mapa::modificator(int x, int y, char a)
 {
 	map[x][y] = a;

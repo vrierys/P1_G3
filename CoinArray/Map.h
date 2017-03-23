@@ -8,6 +8,7 @@ public:
 	void print();
 	int numfilas;
 	int numcolums;
-private:
 	char **map;
+private:
+	
 };
