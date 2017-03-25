@@ -25,13 +25,13 @@ void main()
 	int maxcoin = 30 - lvldif + rand() % (30 * lvldif * 2 - 30 * lvldif);
 	Input:: Key tecla;
 	system("cls");
-	mapa.print;
+	mapa.print();
 	do
 	{
 		tecla = Input::getKey();
 		system("cls");
 		player.move(tecla);
-		mapa.print;
+		mapa.print();
 		std::cout <<"Puntuacion " <<player.puntuacion << "/" << maxcoin << std::endl;
 			
 	} while (maxcoin!=player.puntuacion);
