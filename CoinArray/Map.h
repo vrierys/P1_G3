@@ -6,8 +6,7 @@ public:
 	~Mapa();
 	void modificator(int x, int y, char a);
 	void print();
-	int numfilas;
-	int numcolums;
+	int arrcapacity;
 	char **map;
 private:
 	

@@ -11,7 +11,7 @@ public:
 	int puntuacion;
 
 private:
-	Mapa &mimapa;
+	Mapa mymapa;
 	coinmanager &micoinmanager;
 	int x;
 	int y;

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <string>
 void main()
 {
 	std::cout << "******************************************************************" << std::endl;
@@ -22,6 +23,7 @@ void main()
 	Mapa mapa(lvldif);
 	coinmanager coin(mapa);
 	Player player(mapa,coin);
+	/*
 	int maxcoin = 30 - lvldif + rand() % (30 * lvldif * 2 - 30 * lvldif);
 	Input:: Key tecla;
 	system("cls");
@@ -36,5 +38,5 @@ void main()
 			
 	} while (maxcoin!=player.puntuacion);
 	int time = clock();
-	std::cout << player.puntuacion << " " << time << std::endl;
+	std::cout << player.puntuacion << " " << time << std::endl;*/
 }

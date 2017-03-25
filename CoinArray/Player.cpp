@@ -1,11 +1,14 @@
 #include "Player.h"
-Player::Player(Mapa a, coinmanager b) : mimapa(a),micoinmanager(b)
+#include <iostream>
+Player::Player(Mapa a, coinmanager b):mymapa(a) , micoinmanager(b)
 {
+	mymapa = a;
 	x = 0;
 	y = 0;
 	puntuacion = 0;
-	mimapa.map[x][y] = '@';
+	mymapa.modificator(x, y, '@');
 }
+
 
 void Player::move(Input::Key a)
 {
@@ -18,7 +21,7 @@ void Player::move(Input::Key a)
 		{
 			y--;
 			comprobarmoneda();
-			mimapa.map[x][y] = '@';
+			mymapa.modificator(x, y, '@');
 		}
 		break;
 	case Input::Key::A:
@@ -26,25 +29,25 @@ void Player::move(Input::Key a)
 		{
 			x--;
 			comprobarmoneda();
-			mimapa.map[x][y] = '@';
+			mymapa.modificator(x, y, '@');
 		}
 		
 		break;
 	case Input::Key::S:
-		if (y != mimapa.numfilas)
+		if (y != mymapa.arrcapacity)
 		{
 			y++;
 			comprobarmoneda();
-			mimapa.map[x][y] = '@';
+			mymapa.modificator(x, y, '@');
 		}
 		
 		break;
 	case Input::Key::D:
-		if (x != mimapa.numcolums)
+		if (x != mymapa.arrcapacity)
 		{
 			x++;
 			comprobarmoneda();
-			mimapa.map[x][y] = '@';
+			mymapa.modificator(x, y, '@');
 		}
 		
 		break;
@@ -59,7 +62,7 @@ void Player::move(Input::Key a)
 
 void Player::comprobarmoneda()
 {
-	if (mimapa.map[x][y]=='$')
+	if (mymapa.map[x][y]=='$')
 	{
 		micoinmanager.coindelete();
 		puntuacion++;
