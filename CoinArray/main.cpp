@@ -7,6 +7,7 @@
 #include <string>
 void main()
 {
+	srand(time(NULL));
 	clock_t start = clock();
 	int lvldif;
 	int maxcoin;
