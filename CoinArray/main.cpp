@@ -32,11 +32,15 @@ void main()
 	mimapa.print();
 	do
 	{
+		
 		tecla = Input::getKey();
-		player.move(tecla);
-		system("cls");
-		mimapa.print();
-		std::cout << "Puntuacion " << player.puntuacion << "/" << maxcoin << std::endl;
+		if (tecla!= Input::Key::NONE)
+		{
+			system("cls");
+			player.move(tecla);
+			mimapa.print();
+			std::cout << "Puntuacion " << player.puntuacion << "/" << maxcoin << std::endl;
+		}
 	} while (maxcoin != player.puntuacion);
 	std::cout << "Puntuacion:"<< player.puntuacion << " Tiempo:" << (clock() - start) / 1000 <<std::endl;
 }
