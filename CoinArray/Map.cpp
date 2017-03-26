@@ -1,42 +1,42 @@
 #include "Map.h"
 #include <iostream>
-#include <string>
-Mapa::Mapa(int lvldif)
+#include "Map.h"
+Mapa::Mapa(int dif)
 {
-	arrcapacity = 5 * lvldif + rand() % (5 * lvldif * 2 - 5 * lvldif);
-	map = new char*[arrcapacity];
-	for (int i = 0; i <arrcapacity; i++)
+	numfilas = 5 * dif + rand() % (5 * dif * 2 - 5 * dif);
+	numcolums = 5 * dif + rand() % (5 * dif * 2 - 5 * dif);
+	md = new char*[numfilas];
+	for (int i = 0; i < numfilas; i++)
 	{
-		map[i] = new char[arrcapacity];
-		for (int j = 0; j < arrcapacity; j++)
+		md[i] = new char[numcolums];
+		for (int j = 0; j < numcolums; j++)
 		{
-				map[i][j] = '.';
+			md[i][j] = '.';
 		}
-	}	
+	}
 }
 
 Mapa::~Mapa()
 {
-	for (int i = 0; i < arrcapacity; i++)
+	for (int i = 0; i <numfilas; i++)
 	{
-		delete[]map[i];
+		delete[]md[i];
 	}
-	delete[]map;
+	delete[]md;
 }
 
-
-void Mapa::modificator(int x, int y, char a)
+void Mapa::modificador(int fila, int columna, char simbol)
 {
-	map[x][y] = a;
+	md[fila][columna] = simbol;
 }
 
 void Mapa::print()
 {
-	for (int i = 0; i != arrcapacity; i++)
+	for (int i = 0; i < numfilas; i++)
 	{
-		for (int j = 0; j != arrcapacity; j++)
+		for (int j = 0; j < numcolums; j++)
 		{
-			std::cout << map[i][j] ;
+			std::cout << md[i][j] << ' ';
 		}
 		std::cout << std::endl;
 	}

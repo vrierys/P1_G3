@@ -1,12 +1,19 @@
 #pragma once
 #include "Map.h"
-class coinmanager
+
+class coinmanger
 {
 public:
-	coinmanager(Mapa a);
+	Mapa &mimap;
+	coinmanger(Mapa &a);
+	~coinmanger();
 	void generator();
-	void coindelete();
+	void deletcoin();
 private:
-	Mapa &mimapa;
-	int cant;
+	int tam;
+	int visiblecoins;
+	int fila, column;
+	int aux;
+
+
 };

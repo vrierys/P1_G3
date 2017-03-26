@@ -1,13 +1,16 @@
 #pragma once
+#include <iostream>
 class Mapa
 {
 public:
-	Mapa(int lvldif);
+	Mapa(int dif);
 	~Mapa();
-	void modificator(int x, int y, char a);
+	void modificador(int x, int y, char simbol);
 	void print();
-	int arrcapacity;
-	char **map;
+	int numfilas;
+	int numcolums;
+	char **md;
+
 private:
-	
+
 };

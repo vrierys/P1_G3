@@ -2,37 +2,37 @@
 #include <iostream>
 #include <cstdlib>
 
-coinmanager::coinmanager(Mapa a) :mimapa(a)
+coinmanger::coinmanger(Mapa &a) : mimap(a)
 {
 	generator();
 }
 
-void coinmanager::generator()
+coinmanger::~coinmanger()
 {
-	int min = 3 * (mimapa.arrcapacity*mimapa.arrcapacity) / 100;
-	int max = 13 * (mimapa.arrcapacity*mimapa.arrcapacity) / 100;
-	cant = min + rand() % (max - min);
-	int aux = cant;
-	do
-	{
-		int x = 1+rand() % (mimapa.arrcapacity-1);//se le suma uno para que quede libre la posicion 0
-		int y = 1+rand() % (mimapa.arrcapacity-1);//se le suma uno para que quede libre la posicion 0
-		if (mimapa.map[x][y] != '$')
-		{
-			mimapa.modificator(x, y, '$');
-			system("cls");
-			mimapa.print();
-			aux--;
-		}
-
-	} while (aux>0);
-
 }
 
-void coinmanager::coindelete()
+void coinmanger::generator()
 {
-	cant--;
-	if (cant == 0)
+	tam = mimap.numcolums*mimap.numfilas;
+	visiblecoins = (3 * tam) / 100 + rand() % ((13 * tam) / 100 - (3 * tam) / 100);
+	aux = visiblecoins;
+
+	do
+	{
+		column = rand() % (mimap.numcolums-1);
+		fila = rand() % (mimap.numfilas-1);
+		if (mimap.md[fila][column] != '$'&& mimap.md[fila][column]!='@')
+		{
+			mimap.modificador(fila, column, '$');
+			aux--;
+		}
+	} while (aux>0);
+}
+
+void coinmanger::deletcoin()
+{
+	aux++;
+	if (visiblecoins == aux)
 	{
 		generator();
 	}

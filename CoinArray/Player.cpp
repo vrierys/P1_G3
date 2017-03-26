@@ -1,12 +1,20 @@
 #include "Player.h"
 #include <iostream>
-Player::Player(Mapa a, coinmanager b):mymapa(a) , micoinmanager(b)
+Player::Player(Mapa &a, coinmanger &b):mymapa(a) , micoinmanager(b)
 {
-	mymapa = a;
-	x = 0;
-	y = 0;
+	do
+	{
+		fila = rand()%(mymapa.numfilas-1);
+		column = rand() % (mymapa.numcolums-1);
+		if (mymapa.md[fila][column]=='.')
+		{
+			mymapa.modificador(fila, column, '@');
+		}
+		
+
+	} while (mymapa.md[fila][column]!='@');
 	puntuacion = 0;
-	mymapa.modificator(x, y, '@');
+	
 }
 
 
@@ -17,43 +25,48 @@ void Player::move(Input::Key a)
 	case Input::Key::NONE:
 		break;
 	case Input::Key::W:
-		if (y != 0)
+		if (fila != 0)
 		{
-			y--;
+			mymapa.modificador(fila, column, '.');
+			fila--;
 			comprobarmoneda();
-			mymapa.modificator(x, y, '@');
+			mymapa.modificador(fila, column, '@');
 		}
 		break;
 	case Input::Key::A:
-		if (x != 0)
+		if (column != 0)
 		{
-			x--;
+			mymapa.modificador(fila, column, '.');
+			column--;
 			comprobarmoneda();
-			mymapa.modificator(x, y, '@');
+			mymapa.modificador(fila, column, '@');
 		}
 		
 		break;
 	case Input::Key::S:
-		if (y != mymapa.arrcapacity)
+		if (fila != (mymapa.numfilas - 1))
 		{
-			y++;
+			mymapa.modificador(fila, column, '.');
+			fila++;
 			comprobarmoneda();
-			mymapa.modificator(x, y, '@');
+			mymapa.modificador(fila, column, '@');
 		}
 		
 		break;
 	case Input::Key::D:
-		if (x != mymapa.arrcapacity)
+		if (column != (mymapa.numcolums - 1))
 		{
-			x++;
+			mymapa.modificador(fila, column, '.');
+			column++;
 			comprobarmoneda();
-			mymapa.modificator(x, y, '@');
+			mymapa.modificador(fila, column, '@');
 		}
 		
 		break;
 	case Input::Key::ENTER:
 		break;
 	case Input::Key::ESC:
+		exit(0);
 		break;
 	}
 }
@@ -62,9 +75,9 @@ void Player::move(Input::Key a)
 
 void Player::comprobarmoneda()
 {
-	if (mymapa.map[x][y]=='$')
+	if (mymapa.md[fila][column]=='$')
 	{
-		micoinmanager.coindelete();
+		micoinmanager.deletcoin();
 		puntuacion++;
 	}
 }

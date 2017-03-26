@@ -5,7 +5,8 @@ namespace Input
 	enum class Key // represents each key that the player can use
 	{
 		NONE, W, A, S, D, ENTER, ESC
-	};	static Key getKey() // returns the key that has been pressed
+	};
+	static Key getKey() // returns the key that has been pressed
 	{
 		if (_kbhit())
 		{
@@ -27,4 +28,5 @@ namespace Input
 		}
 		return Key::NONE;
 	}
-};
+};
+
