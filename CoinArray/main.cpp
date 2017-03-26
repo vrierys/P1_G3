@@ -38,5 +38,5 @@ void main()
 		mimapa.print();
 		std::cout << "Puntuacion " << player.puntuacion << "/" << maxcoin << std::endl;
 	} while (maxcoin != player.puntuacion);
-	std::cout << player.puntuacion << " " << (clock() - start) / 1000 << std::endl;
+	std::cout << "Puntuacion:"<< player.puntuacion << " Tiempo:" << (clock() - start) / 1000 <<std::endl;
 }

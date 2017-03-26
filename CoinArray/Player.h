@@ -9,7 +9,7 @@ public:
 	void move(Input:: Key a);
 	void comprobarmoneda();
 	int puntuacion;
-	Mapa mymapa;
+	Mapa &mymapa;
 	coinmanger &micoinmanager;
 	int fila;
 	int column;
