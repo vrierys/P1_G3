@@ -11,9 +11,9 @@ public:
 	void deletcoin();
 private:
 	int tam;
-	int visiblecoins;
+	int visblecoins;
 	int fila, column;
-	int aux;
+	int coinstogenerate;
 
 
 };

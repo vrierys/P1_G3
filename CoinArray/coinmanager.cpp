@@ -14,8 +14,8 @@ coinmanger::~coinmanger()
 void coinmanger::generator()
 {
 	tam = mimap.numcolums*mimap.numfilas;
-	visiblecoins = (3 * tam) / 100 + rand() % ((13 * tam) / 100 - (3 * tam) / 100);
-	aux = visiblecoins;
+	coinstogenerate = (3 * tam) / 100 + rand() % ((13 * tam) / 100 - (3 * tam) / 100);// tanda de monedas que se generan
+	visblecoins = coinstogenerate;// las coins que se pueden ver
 
 	do
 	{
@@ -24,15 +24,15 @@ void coinmanger::generator()
 		if (mimap.md[fila][column] != '$'&& mimap.md[fila][column]!='@')
 		{
 			mimap.modificador(fila, column, '$');
-			aux--;
+			coinstogenerate--;
 		}
-	} while (aux>0);
+	} while (coinstogenerate>0);
 }
 
 void coinmanger::deletcoin()
 {
-	aux++;
-	if (visiblecoins == aux)
+	visblecoins--;
+	if (visblecoins == 0)
 	{
 		generator();
 	}

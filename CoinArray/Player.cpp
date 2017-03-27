@@ -2,7 +2,7 @@
 #include <iostream>
 Player::Player(Mapa &a, coinmanger &b):mymapa(a) , micoinmanager(b)
 {
-	do
+	do// para que la posicion del jugador no sea el mismo que una moneda
 	{
 		fila = rand()%(mymapa.numfilas-1);
 		column = rand() % (mymapa.numcolums-1);
@@ -62,8 +62,6 @@ void Player::move(Input::Key a)
 			mymapa.modificador(fila, column, '@');
 		}
 		
-		break;
-	case Input::Key::ENTER:
 		break;
 	case Input::Key::ESC:
 		exit(0);

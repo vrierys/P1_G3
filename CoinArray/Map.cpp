@@ -36,7 +36,7 @@ void Mapa::print()
 	{
 		for (int j = 0; j < numcolums; j++)
 		{
-			std::cout << md[i][j] << ' ';
+			std::cout << md[i][j] << ' '<< ' ';
 		}
 		std::cout << std::endl;
 	}
