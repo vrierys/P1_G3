@@ -14,8 +14,10 @@ coinmanger::~coinmanger()
 void coinmanger::generator()
 {
 	tam = mimap.numcolums*mimap.numfilas;
-	coinstogenerate = (3 * tam) / 100 + rand() % ((13 * tam) / 100 - (3 * tam) / 100);// tanda de monedas que se generan
-	visblecoins = coinstogenerate;// las coins que se pueden ver
+	// Cantidad de monedas que se generan.
+	coinstogenerate = (3 * tam) / 100 + rand() % ((13 * tam) / 100 - (3 * tam) / 100);
+	// Las monedas que se pueden ver en el mapa.
+	visblecoins = coinstogenerate;
 
 	do
 	{

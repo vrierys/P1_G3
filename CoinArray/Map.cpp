@@ -1,6 +1,7 @@
 #include "Map.h"
 #include <iostream>
 #include "Map.h"
+
 Mapa::Mapa(int dif)
 {
 	numfilas = 5 * dif + rand() % (5 * dif * 2 - 5 * dif);
